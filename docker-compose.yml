@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   backend:
     build: ./backend
@@ -44,6 +42,64 @@ services:
     networks:
       - prompt-eval-network
 
+  prometheus:
+    image: prom/prometheus
+
+    container_name: prometheus
+
+    ports:
+      - "9090:9090"
+
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+    networks:
+      - prompt-eval-network
+
+  grafana:
+    image: grafana/grafana
+
+    container_name: grafana
+
+    ports:
+      - "3001:3000"
+
+    depends_on:
+      - prometheus
+
+    networks:
+      - prompt-eval-network
+
+  sonarqube:
+    image: sonarqube:lts-community
+
+    container_name: sonarqube
+
+    ports:
+      - "9000:9000"
+
+    networks:
+      - prompt-eval-network
+
+  jenkins:
+    image: jenkins/jenkins:lts
+
+    container_name: jenkins
+
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+
+    volumes:
+      - jenkins_home:/var/jenkins_home
+
+    networks:
+      - prompt-eval-network
+
 networks:
   prompt-eval-network:
     driver: bridge
+
+volumes:
+  jenkins_home:
+    external: true

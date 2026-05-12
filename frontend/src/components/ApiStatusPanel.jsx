@@ -18,7 +18,8 @@ export default function ApiStatusPanel() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/api-status')
+    //axios.get('http://localhost:8000/api/api-status')
+    axios.get(`${import.meta.env.VITE_API_URL}/api/api-status`)
       //.then(r => setStatuses(r.data.statuses))
       .then(r => setStatuses(r.data))
       .catch(() => setStatuses(null))

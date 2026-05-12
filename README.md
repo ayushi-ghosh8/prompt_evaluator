@@ -1,335 +1,296 @@
-# Prompt Evaluation & Experimentation System
+Prompt Evaluation & Experimentation System
+📌 Project Overview
 
-A full-stack AI Prompt Evaluation and Experimentation platform with DevOps integration using FastAPI, React/Vite, MongoDB, Docker, Jenkins, and SonarQube.
+The Prompt Evaluation & Experimentation System is a full-stack AI prompt analysis platform designed to evaluate, compare, optimize, and monitor prompts used with Large Language Models (LLMs).
 
----
+The project combines:
 
-# 📌 Project Overview
+FastAPI backend
+React + Vite frontend
+MongoDB database
+Docker containerization
+Jenkins CI/CD pipeline
+SonarQube static code analysis
+Prometheus monitoring
+Grafana observability dashboards
 
-This repository implements a practical Prompt Evaluation and Experimentation System designed to evaluate, compare, optimize, and track prompts using deterministic metrics and multi-model analysis.
+This project demonstrates a modern DevOps + AI workflow with automated builds, monitoring, and deployment.
 
-The project also integrates modern DevOps practices including:
-- Continuous Integration (CI)
-- Static Code Analysis
-- Containerization
-- Multi-container Deployment
+🚀 Features
+🔹 Prompt Evaluation
 
----
+Evaluate prompts using deterministic metrics such as:
 
-# 🎯 Executive Summary
+clarity
+specificity
+ambiguity
+instruction quality
+keyword relevance
+conciseness
+🔹 Prompt Optimization
 
-The platform evaluates prompt quality using deterministic scoring metrics, compares outputs across models, supports A/B prompt testing, stores prompt versions, and captures user feedback.
+Generate optimization suggestions for weak prompts.
 
-It provides an end-to-end workflow for prompt engineering experimentation and quality monitoring.
+🔹 A/B Prompt Testing
 
----
+Compare:
 
-# 🧠 What the System Does
+Prompt A vs Prompt B
+side-by-side scores
+regression detection
+winner recommendation
+🔹 Multi-Model Comparison
 
-The system provides:
+Compare responses from:
 
-- Prompt evaluation with deterministic scoring
-- Prompt optimization suggestions
-- Multi-model response comparison
-- A/B prompt testing
-- Prompt history and version tracking
-- Feedback capture for prompt results
-- Prompt injection detection
-- Regression alerts for prompt quality changes
+Groq
+Gemini
+HuggingFace
 
----
+Metrics include:
 
-# 🚀 Key Features
+latency
+quality score
+best model recommendation
+🔹 Prompt Versioning & History
+save prompts
+load previous versions
+track regression changes
+🔹 Feedback Capture
 
-## 🔹 Deterministic Prompt Metrics
+Supports:
 
-- Keyword relevance matching
-- Format validation (Bullet / JSON)
-- Conciseness checks
-- Clarity scoring
-- Specificity scoring
-- Context scoring
-- Instruction scoring
-- Ambiguity scoring
-
----
-
-## 🔹 A/B Prompt Comparison
-
-- Compare Prompt A vs Prompt B
-- Side-by-side metric comparison
-- Winner recommendation
-- Regression detection
-
----
-
-## 🔹 Multi-Model Output Comparison
-
-Supports comparison between:
-- Groq
-- Gemini
-- HuggingFace
-
-Includes:
-- Latency comparison
-- Response quality scoring
-- Best model recommendation
-
----
-
-## 🔹 Prompt Versioning & History
-
-- Save prompt versions
-- Load previous prompt revisions
-- Track prompt improvements
-- Support regression monitoring
-
----
-
-## 🔹 Feedback Capture
-
-- Thumbs-up / thumbs-down feedback
-- User comments for prompt quality
-- Backend storage for analysis
-
----
-
-## 🔹 Security Guardrails
-
-- Prompt injection detection
-- Safe fallback to mock model responses when API keys are unavailable
-
----
-
-# 🧩 System Architecture
-
-## Backend
-- FastAPI
-- Deterministic prompt evaluation engine
-- MongoDB integration using Motor
-
-## Frontend
-- React
-- Vite
-- Modern UI components
-- Nginx production deployment
-
-## Database
-- MongoDB
-
-## DevOps Stack
-- Docker
-- Docker Compose
-- Jenkins
-- SonarQube
-- GitHub
-
----
-
-# 📂 Project Structure
-
-```bash
+thumbs up/down
+user comments
+backend storage for analysis
+🔹 Security Features
+prompt injection detection
+safe fallback responses
+API key validation
+🧩 Tech Stack
+Category	Technology
+Frontend	React + Vite
+Backend	FastAPI
+Database	MongoDB
+Containerization	Docker
+CI/CD	Jenkins
+Code Analysis	SonarQube
+Monitoring	Prometheus
+Visualization	Grafana
+🏗️ System Architecture
+GitHub Repository
+        ↓
+Jenkins CI/CD Pipeline
+        ↓
+Build + Validation
+        ↓
+SonarQube Static Analysis
+        ↓
+Docker Compose Deployment
+        ↓
+Frontend + Backend + MongoDB
+        ↓
+Prometheus Metrics Collection
+        ↓
+Grafana Monitoring Dashboard
+📂 Project Structure
 Prompt_Evaluator/
 │
 ├── backend/
-│   ├── Dockerfile
+│   ├── api/
+│   ├── main.py
 │   ├── requirements.txt
-│   ├── .env
-│   └── ...
+│   └── Dockerfile
 │
 ├── frontend/
-│   ├── Dockerfile
+│   ├── src/
+│   ├── public/
 │   ├── nginx.conf
-│   └── ...
+│   └── Dockerfile
 │
-├── docker-compose.yml
 ├── Jenkinsfile
+├── docker-compose.yml
+├── prometheus.yml
 └── README.md
+⚙️ Local Setup
+1️⃣ Clone Repository
+git clone https://github.com/ayushi-ghosh8/prompt_evaluator.git
 
-⚙️ Local Setup Instructions
-
-Backend Setup
+cd prompt_evaluator
+🖥️ Backend Setup
 cd backend
 
 python3 -m venv venv
 
 source venv/bin/activate
+Windows
+venv\Scripts\activate
+
+Install dependencies:
 
 pip install -r requirements.txt
 
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-Frontend Setup
+Run backend:
 
-Open another terminal:
+uvicorn main:app --reload --port 8000
 
+Backend available at:
+
+http://localhost:8000
+
+FastAPI docs:
+
+http://localhost:8000/docs
+🎨 Frontend Setup
 cd frontend
 
 npm install
 
 npm run dev
 
-🌐 Local URLs
+Frontend available at:
 
-Frontend
 http://localhost:5173
-
-Backend
-http://localhost:8000
-
-Swagger API Docs
-http://localhost:8000/docs
-
 🔐 Environment Variables
 
-Copy the backend example environment file:
-
-cd backend
-
-cp .env.example .env
-
-Add your API keys:
+Create .env inside backend:
 
 GROQ_API_KEY=your_groq_key
-GOOGLE_API_KEY=your_gemini_key
+GOOGLE_API_KEY=your_google_key
 HUGGINGFACE_API_KEY=your_huggingface_key
 
-If API keys are missing, the backend automatically uses safe mock responses.
+If API keys are unavailable, the system uses safe mock responses.
 
 🐳 Docker Setup
-
-Backend Docker
-
-The backend is containerized using:
-
-Python 3.9 Slim
-FastAPI
-Uvicorn
-Frontend Docker
-
-The frontend uses:
-
-Multi-stage Docker builds
-Node.js for build stage
-Nginx for production deployment
-
-🐳 Docker Compose Setup
-
-Docker Compose orchestrates:
-
-Backend container
-Frontend container
-MongoDB container
-
-Run Entire Application
+Build & Run Entire Stack
 docker compose up --build
+🌐 Docker Service URLs
+Service	URL
+Frontend	http://localhost:3000
 
-Stop Containers
-docker compose down
+Backend	http://localhost:8000
 
-🐳 Build Docker Images Manually
+FastAPI Docs	http://localhost:8000/docs
 
-Backend
-docker build -t prompt-backend:latest ./backend
+MongoDB	mongodb://localhost:27017
+Prometheus	http://localhost:9090
 
-Frontend
-docker build -t prompt-frontend:latest ./frontend
+Grafana	http://localhost:3001
 
-🔄 Jenkins CI Pipeline
+Jenkins	http://localhost:8080
 
-The repository includes a Jenkins pipeline for Continuous Integration.
-Pipeline Stages
-Checkout source code from GitHub
-Backend validation
-Frontend build
-SonarQube static code analysis
+SonarQube	http://localhost:9000
+📊 Prometheus Monitoring
 
-📊 SonarQube Integration
+Prometheus collects FastAPI metrics from:
 
-SonarQube is integrated for:
-Code quality analysis
-Bug detection
-Vulnerability detection
-Code smell detection
-Maintainability analysis
+/metrics
 
-🌐 DevOps Service URLs
+Metrics include:
 
-Jenkins Dashboard
-http://localhost:8080
+HTTP requests
+request latency
+endpoint activity
+backend health
+📈 Grafana Dashboards
 
-SonarQube Dashboard
-http://localhost:9000
+Grafana visualizes:
 
-📍 Important API Endpoints
+API traffic
+request count
+monitoring graphs
+Prometheus metrics
 
-Method	Endpoint	Description
-POST	/api/analyze	Prompt evaluation
-POST	/api/optimize	Prompt optimization
-POST	/api/compare	Multi-model comparison
-POST	/api/ab-test	A/B prompt testing
-POST	/api/feedback	Submit user feedback
-GET	/api/prompt-history	Fetch prompt versions
-POST	/api/prompt-history	Save prompt version
-POST	/api/dataset	Add golden dataset entry
+Default login:
 
-📈 DevOps Workflow
+Username	Password
+admin	admin
+🔄 Jenkins CI/CD Pipeline
 
-GitHub
-   ↓
-Jenkins CI Pipeline
-   ↓
+The Jenkins pipeline automates:
+
+GitHub checkout
+backend validation
+frontend build
+SonarQube analysis
+deployment verification
+
+Pipeline stages:
+
+Checkout
 Backend Validation
-   ↓
 Frontend Build
-   ↓
 SonarQube Analysis
-   ↓
-Docker Compose Deployment
+Cleanup
+🔍 SonarQube Analysis
 
-🧪 What's New
+SonarQube performs:
 
-Deterministic prompt metrics added
-Regression detection support
-A/B prompt testing feature
-Prompt version history support
-User feedback capture
-Docker containerization
-Docker Compose deployment
-Jenkins CI pipeline integration
-SonarQube static analysis integration
-Nginx frontend deployment
+static code analysis
+bug detection
+vulnerability scanning
+code smell analysis
+maintainability analysis
 
-🧠 Current Status
+Project dashboard:
 
-✅ Backend available on http://localhost:8000
-✅ Frontend available on http://localhost:3000
-✅ Docker Compose deployment working
-✅ MongoDB integration working
-✅ Jenkins pipeline configured
-✅ SonarQube analysis configured
-✅ Frontend production build working with Nginx
-✅ Prompt history and feedback system implemented
+http://localhost:9000
+🐳 Docker Compose Services
 
-📚 Learning Outcomes
+The project runs:
 
-This project demonstrates:
+frontend container
+backend container
+mongodb container
+prometheus container
+grafana container
+jenkins container
+sonarqube container
 
-Full-stack application development
-Prompt engineering experimentation
-CI/CD pipeline implementation
-Docker containerization
-Multi-container orchestration
-Static code analysis
-DevOps workflow integration
+using a single command:
+
+docker compose up --build
+📌 Important API Endpoints
+Endpoint	Description
+POST /api/analyze	Evaluate prompt
+POST /api/optimize	Optimize prompt
+POST /api/compare	Compare models
+POST /api/ab-test	A/B prompt testing
+POST /api/feedback	Submit feedback
+GET /api/prompt-history	Fetch history
+POST /api/prompt-history	Save prompt
+GET /metrics	Prometheus metrics
+🧪 Example DevOps Workflow
+Developer pushes code to GitHub
+            ↓
+Jenkins pipeline triggers automatically
+            ↓
+Backend + Frontend build validation
+            ↓
+SonarQube performs code analysis
+            ↓
+Docker containers deployed
+            ↓
+Prometheus collects metrics
+            ↓
+Grafana visualizes monitoring dashboards
+
+✅ Current Status
+Feature	Status
+FastAPI Backend	✅
+React Frontend	✅
+MongoDB Integration	✅
+Docker Compose	✅
+Jenkins CI/CD	✅
+SonarQube Analysis	✅
+Prometheus Monitoring	✅
+Grafana Dashboard	✅
 
 📌 Future Improvements
-
-Prompt dataset management dashboard
-Regression trend visualization
-Analytics dashboards
-Unit and integration testing
-Automated deployment pipeline
-Kubernetes integration
-Monitoring and logging tools
-Cloud deployment support
-
+Kubernetes deployment
+automated testing pipeline
+alerting system
+advanced analytics dashboard
+user authentication
+cloud deployment
+AI-based prompt recommendations

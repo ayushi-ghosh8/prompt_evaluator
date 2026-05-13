@@ -12,7 +12,6 @@ Docker containerization
 Jenkins CI/CD pipeline
 SonarQube static code analysis
 Prometheus monitoring
-Grafana observability dashboards
 
 This project demonstrates a modern DevOps + AI workflow with automated builds, monitoring, and deployment.
 
@@ -21,12 +20,12 @@ This project demonstrates a modern DevOps + AI workflow with automated builds, m
 
 Evaluate prompts using deterministic metrics such as:
 
-clarity
-specificity
-ambiguity
-instruction quality
-keyword relevance
-conciseness
+Clarity
+Specificity
+Ambiguity
+Instruction quality
+Keyword relevance
+Conciseness
 🔹 Prompt Optimization
 
 Generate optimization suggestions for weak prompts.
@@ -36,9 +35,9 @@ Generate optimization suggestions for weak prompts.
 Compare:
 
 Prompt A vs Prompt B
-side-by-side scores
-regression detection
-winner recommendation
+Side-by-side scores
+Regression detection
+Winner recommendation
 🔹 Multi-Model Comparison
 
 Compare responses from:
@@ -49,34 +48,34 @@ HuggingFace
 
 Metrics include:
 
-latency
-quality score
-best model recommendation
+Latency
+Quality score
+Best model recommendation
 🔹 Prompt Versioning & History
-save prompts
-load previous versions
-track regression changes
+Save prompts
+Load previous versions
+Track regression changes
 🔹 Feedback Capture
 
 Supports:
 
-thumbs up/down
-user comments
-backend storage for analysis
+Thumbs up/down
+User comments
+Backend storage for analysis
 🔹 Security Features
-prompt injection detection
-safe fallback responses
+Prompt injection detection
+Safe fallback responses
 API key validation
 🧩 Tech Stack
 Category	Technology
 Frontend	React + Vite
 Backend	FastAPI
-Database	MongoDB
+Database	MongoDB Atlas
 Containerization	Docker
 CI/CD	Jenkins
 Code Analysis	SonarQube
 Monitoring	Prometheus
-Visualization	Grafana
+Deployment	Vercel + Render
 🏗️ System Architecture
 GitHub Repository
         ↓
@@ -86,18 +85,18 @@ Build + Validation
         ↓
 SonarQube Static Analysis
         ↓
-Docker Compose Deployment
+Docker Compose Local Deployment
         ↓
 Frontend + Backend + MongoDB
         ↓
 Prometheus Metrics Collection
-        ↓
-Grafana Monitoring Dashboard
 📂 Project Structure
 Prompt_Evaluator/
 │
 ├── backend/
 │   ├── api/
+│   ├── db/
+│   ├── models/
 │   ├── main.py
 │   ├── requirements.txt
 │   └── Dockerfile
@@ -106,6 +105,9 @@ Prompt_Evaluator/
 │   ├── src/
 │   ├── public/
 │   ├── nginx.conf
+│   └── Dockerfile
+│
+├── jenkins/
 │   └── Dockerfile
 │
 ├── Jenkinsfile
@@ -120,11 +122,16 @@ cd prompt_evaluator
 🖥️ Backend Setup
 cd backend
 
-python3 -m venv venv
+Create virtual environment:
 
-source venv/bin/activate
+python -m venv venv
+
+Activate virtual environment:
+
 Windows
 venv\Scripts\activate
+Linux / Mac
+source venv/bin/activate
 
 Install dependencies:
 
@@ -144,7 +151,11 @@ http://localhost:8000/docs
 🎨 Frontend Setup
 cd frontend
 
+Install dependencies:
+
 npm install
+
+Run frontend:
 
 npm run dev
 
@@ -153,11 +164,12 @@ Frontend available at:
 http://localhost:5173
 🔐 Environment Variables
 
-Create .env inside backend:
+Create .env inside backend/
 
 GROQ_API_KEY=your_groq_key
 GOOGLE_API_KEY=your_google_key
 HUGGINGFACE_API_KEY=your_huggingface_key
+MONGO_URI=your_mongodb_uri
 
 If API keys are unavailable, the system uses safe mock responses.
 
@@ -175,11 +187,14 @@ FastAPI Docs	http://localhost:8000/docs
 MongoDB	mongodb://localhost:27017
 Prometheus	http://localhost:9090
 
-Grafana	http://localhost:3001
-
 Jenkins	http://localhost:8080
 
 SonarQube	http://localhost:9000
+☁️ Cloud Deployment
+Component	Platform
+Frontend	Vercel
+Backend	Render
+Database	MongoDB Atlas
 📊 Prometheus Monitoring
 
 Prometheus collects FastAPI metrics from:
@@ -189,34 +204,19 @@ Prometheus collects FastAPI metrics from:
 Metrics include:
 
 HTTP requests
-request latency
-endpoint activity
-backend health
-📈 Grafana Dashboards
-
-Grafana visualizes:
-
-API traffic
-request count
-monitoring graphs
-Prometheus metrics
-
-Default login:
-
-Username	Password
-admin	admin
+Request latency
+Endpoint activity
+Backend health
 🔄 Jenkins CI/CD Pipeline
 
 The Jenkins pipeline automates:
 
 GitHub checkout
-backend validation
-frontend build
+Backend validation
+Frontend build
 SonarQube analysis
-deployment verification
-
-Pipeline stages:
-
+Deployment verification
+Pipeline Stages
 Checkout
 Backend Validation
 Frontend Build
@@ -226,11 +226,11 @@ Cleanup
 
 SonarQube performs:
 
-static code analysis
-bug detection
-vulnerability scanning
-code smell analysis
-maintainability analysis
+Static code analysis
+Bug detection
+Vulnerability scanning
+Code smell analysis
+Maintainability analysis
 
 Project dashboard:
 
@@ -239,13 +239,12 @@ http://localhost:9000
 
 The project runs:
 
-frontend container
-backend container
-mongodb container
-prometheus container
-grafana container
-jenkins container
-sonarqube container
+Frontend container
+Backend container
+MongoDB container
+Prometheus container
+Jenkins container
+SonarQube container
 
 using a single command:
 
@@ -262,19 +261,16 @@ POST /api/prompt-history	Save prompt
 GET /metrics	Prometheus metrics
 🧪 Example DevOps Workflow
 Developer pushes code to GitHub
-            ↓
+                ↓
 Jenkins pipeline triggers automatically
-            ↓
+                ↓
 Backend + Frontend build validation
-            ↓
+                ↓
 SonarQube performs code analysis
-            ↓
+                ↓
 Docker containers deployed
-            ↓
+                ↓
 Prometheus collects metrics
-            ↓
-Grafana visualizes monitoring dashboards
-
 ✅ Current Status
 Feature	Status
 FastAPI Backend	✅
@@ -284,13 +280,11 @@ Docker Compose	✅
 Jenkins CI/CD	✅
 SonarQube Analysis	✅
 Prometheus Monitoring	✅
-Grafana Dashboard	✅
-
+Cloud Deployment	✅
 📌 Future Improvements
 Kubernetes deployment
-automated testing pipeline
-alerting system
-advanced analytics dashboard
-user authentication
-cloud deployment
+Automated testing pipeline
+Alerting system
+Advanced analytics dashboard
+User authentication
 AI-based prompt recommendations

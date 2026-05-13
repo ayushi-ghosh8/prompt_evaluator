@@ -50,7 +50,7 @@ pipeline {
                         -Dsonar.projectKey=prompt-evaluator \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=http://host.docker.internal:9000 \
-                        -Dsonar.token=squ_c5acf21eedddd91d642e7ec4478af9dc6d387b0b
+                        -Dsonar.token=squ_d338cc012a308b67a5fbc1db58b469652c3d26ca
                         """
                     }
                 }

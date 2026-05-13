@@ -82,7 +82,7 @@ services:
       - prompt-eval-network
 
   jenkins:
-    image: jenkins/jenkins:lts
+    build: ./jenkins
 
     container_name: jenkins
 

@@ -62,58 +62,63 @@ Supports:
 Thumbs up/down
 User comments
 Backend storage for analysis
+
 🔹 Security Features
 Prompt injection detection
 Safe fallback responses
 API key validation
+
 🧩 Tech Stack
-Category	Technology
-Frontend	React + Vite
-Backend	FastAPI
-Database	MongoDB Atlas
-Containerization	Docker
-CI/CD	Jenkins
-Code Analysis	SonarQube
-Monitoring	Prometheus
-Deployment	Vercel + Render
+Category Technology
+Frontend React + Vite
+Backend FastAPI
+Database MongoDB Atlas
+Containerization Docker
+CI/CD Jenkins
+Code Analysis SonarQube
+Monitoring Prometheus
+Deployment Vercel + Render
+
 🏗️ System Architecture
 GitHub Repository
-        ↓
+↓
 Jenkins CI/CD Pipeline
-        ↓
+↓
 Build + Validation
-        ↓
+↓
 SonarQube Static Analysis
-        ↓
+↓
 Docker Compose Local Deployment
-        ↓
+↓
 Frontend + Backend + MongoDB
-        ↓
+↓
 Prometheus Metrics Collection
+
 📂 Project Structure
 Prompt_Evaluator/
 │
 ├── backend/
-│   ├── api/
-│   ├── db/
-│   ├── models/
-│   ├── main.py
-│   ├── requirements.txt
-│   └── Dockerfile
+│ ├── api/
+│ ├── db/
+│ ├── models/
+│ ├── main.py
+│ ├── requirements.txt
+│ └── Dockerfile
 │
 ├── frontend/
-│   ├── src/
-│   ├── public/
-│   ├── nginx.conf
-│   └── Dockerfile
+│ ├── src/
+│ ├── public/
+│ ├── nginx.conf
+│ └── Dockerfile
 │
 ├── jenkins/
-│   └── Dockerfile
+│ └── Dockerfile
 │
 ├── Jenkinsfile
 ├── docker-compose.yml
 ├── prometheus.yml
 └── README.md
+
 ⚙️ Local Setup
 1️⃣ Clone Repository
 git clone https://github.com/ayushi-ghosh8/prompt_evaluator.git
@@ -162,6 +167,7 @@ npm run dev
 Frontend available at:
 
 http://localhost:5173
+
 🔐 Environment Variables
 
 Create .env inside backend/
@@ -176,25 +182,29 @@ If API keys are unavailable, the system uses safe mock responses.
 🐳 Docker Setup
 Build & Run Entire Stack
 docker compose up --build
+
 🌐 Docker Service URLs
-Service	URL
-Frontend	http://localhost:3000
 
-Backend	http://localhost:8000
+Service URL
+Frontend http://localhost:3000
 
-FastAPI Docs	http://localhost:8000/docs
+Backend http://localhost:8000
 
-MongoDB	mongodb://localhost:27017
-Prometheus	http://localhost:9090
+FastAPI Docs http://localhost:8000/docs
 
-Jenkins	http://localhost:8080
+MongoDB mongodb://localhost:27017
+Prometheus http://localhost:9090
 
-SonarQube	http://localhost:9000
+Jenkins http://localhost:8080
+
+SonarQube http://localhost:9000
+
 ☁️ Cloud Deployment
-Component	Platform
-Frontend	Vercel
-Backend	Render
-Database	MongoDB Atlas
+Component Platform
+Frontend Vercel
+Backend Render
+Database MongoDB Atlas
+
 📊 Prometheus Monitoring
 
 Prometheus collects FastAPI metrics from:
@@ -207,6 +217,7 @@ HTTP requests
 Request latency
 Endpoint activity
 Backend health
+
 🔄 Jenkins CI/CD Pipeline
 
 The Jenkins pipeline automates:
@@ -222,6 +233,7 @@ Backend Validation
 Frontend Build
 SonarQube Analysis
 Cleanup
+
 🔍 SonarQube Analysis
 
 SonarQube performs:
@@ -250,37 +262,40 @@ using a single command:
 
 docker compose up --build
 📌 Important API Endpoints
-Endpoint	Description
-POST /api/analyze	Evaluate prompt
-POST /api/optimize	Optimize prompt
-POST /api/compare	Compare models
-POST /api/ab-test	A/B prompt testing
-POST /api/feedback	Submit feedback
-GET /api/prompt-history	Fetch history
-POST /api/prompt-history	Save prompt
-GET /metrics	Prometheus metrics
+Endpoint Description
+POST /api/analyze Evaluate prompt
+POST /api/optimize Optimize prompt
+POST /api/compare Compare models
+POST /api/ab-test A/B prompt testing
+POST /api/feedback Submit feedback
+GET /api/prompt-history Fetch history
+POST /api/prompt-history Save prompt
+GET /metrics Prometheus metrics
+
 🧪 Example DevOps Workflow
 Developer pushes code to GitHub
-                ↓
+↓
 Jenkins pipeline triggers automatically
-                ↓
+↓
 Backend + Frontend build validation
-                ↓
+↓
 SonarQube performs code analysis
-                ↓
+↓
 Docker containers deployed
-                ↓
+↓
 Prometheus collects metrics
+
 ✅ Current Status
-Feature	Status
-FastAPI Backend	✅
-React Frontend	✅
-MongoDB Integration	✅
-Docker Compose	✅
-Jenkins CI/CD	✅
-SonarQube Analysis	✅
-Prometheus Monitoring	✅
-Cloud Deployment	✅
+Feature Status
+FastAPI Backend ✅
+React Frontend ✅
+MongoDB Integration ✅
+Docker Compose ✅
+Jenkins CI/CD ✅
+SonarQube Analysis ✅
+Prometheus Monitoring ✅
+Cloud Deployment ✅
+
 📌 Future Improvements
 Kubernetes deployment
 Automated testing pipeline
